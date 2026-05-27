@@ -1,0 +1,263 @@
+#footer {
+    background: transparent !important; /*全透明，已选用*/
+}
+
+/* 半透明以及透明色，未选用，
+#footer {
+    background: rgba(255,255,255,.15);
+    color: #000;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    backdrop-filter: saturate(100%) blur(5px)
+}
+#footer::before {
+    background: rgba(255,255,255,.15)
+}
+*/
+#footer #footer-wrap {
+    color: var(--font-color);
+}
+
+#footer #footer-wrap a {
+    color: var(--font-color);
+}
+
+/*波浪特效*/
+.main-hero-waves-area {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    z-index: 0;
+    bottom: -15px /*特效显示位置调整，正/负值：以中心点 上移/下移，一般改数值即可*/
+}
+
+.waves-area .waves-svg {
+    width: 100%;
+    height: 5rem
+}
+
+.waves-area .parallax>use {
+    -webkit-animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite
+}
+/****修改波浪特效fill属性处颜色值（#后六位，7、8位透明度不用改），rgba(246, 239, 246) 与 #F6EFF6 效果是一样的*****/
+.waves-area .parallax>use:first-child {
+    -webkit-animation-delay: -2s;
+    animation-delay: -2s;
+    -webkit-animation-duration: 7s;
+    animation-duration: 7s;
+    fill: #F0F9EFb3
+}
+
+.waves-area .parallax>use:nth-child(2) {
+    -webkit-animation-delay: -3s;
+    animation-delay: -3s;
+    -webkit-animation-duration: 10s;
+    animation-duration: 10s;
+    fill: #F0F9EF80
+}
+
+.waves-area .parallax>use:nth-child(3) {
+    -webkit-animation-delay: -4s;
+    animation-delay: -4s;
+    -webkit-animation-duration: 13s;
+    animation-duration: 13s;
+    fill: #F0F9EF4d
+}
+
+.waves-area .parallax>use:nth-child(4) {
+    -webkit-animation-delay: -5s;
+    animation-delay: -5s;
+    -webkit-animation-duration: 20s;
+    animation-duration: 20s;
+    fill: #F0F9EF
+}
+
+/*黑暗模式适配*/
+[data-theme=dark]
+.waves-area .parallax>use:first-child {
+    fill: #0f172ab3
+}
+[data-theme=dark]
+.waves-area .parallax>use:nth-child(2) {
+    fill: #0f172a80
+}
+[data-theme=dark]
+.waves-area .parallax>use:nth-child(3) {
+    fill: #0f172a4d
+}
+[data-theme=dark]
+.waves-area .parallax>use:nth-child(4) {
+    fill: #070b14
+}
+
+@-webkit-keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0)
+    }
+
+    to {
+        transform: translate3d(85px, 0, 0)
+    }
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0)
+    }
+
+    to {
+        transform: translate3d(85px, 0, 0)
+    }
+}
+
+/*向下按钮和大banner社交图标防被遮挡隐藏*/
+#page-header #scroll-down .scroll-down-effects{
+	z-index: 10;
+}
+#page-header #site_social_icons{
+	display: flow-root;
+}
+
+
+
+/*背景色适配*/
+/*主页背景色*/
+/* #web_bg {
+	background: rgba(246, 239, 246);
+}
+[data-theme=dark]
+#web_bg {
+	background: rgb(4, 4, 4);
+} */
+/*阅读模式背景色*/
+/* #content-inner {
+	background-color: #F0F9EF;
+}
+
+[data-theme=dark] #content-inner {
+	background-color: #020305
+} */
+
+
+
+
+/* 导航栏居中 */
+#nav-right{
+    flex:1 1 auto;
+    justify-content: flex-end;
+    margin-left: auto;
+    display: flex;
+    flex-wrap:nowrap;
+}
+
+/* 挪动banner位置，防止被波浪遮掩 */
+/* 整体上移文章标题和元数据块 */
+#post-info {
+  /* 方式 A：缩小底部间距（最推荐） */
+  padding-bottom: 0px !important; /* 默认通常比较大，调小这个数值，内容就会整体上提 */
+  
+  /* 方式 B：如果你想精确控制距离底部的距离 */
+  bottom: 18% !important;         /* 这里的百分比越高，位置越靠上 */
+  
+  /* 方式 C：物理平移（暴力但有效） */
+  /* transform: translateY(-30px) !important; */
+}
+
+/* 适配移动端：防止手机上移得太过头 */
+@media screen and (max-width: 768px) {
+  #post-info {
+    padding-bottom: 40px !important;
+    bottom: 10% !important;
+  }
+}
+
+/*aplayer日间模式调整*/
+/*背景色*/
+.aplayer{
+	background: rgba(255, 255, 255, 0.60)!important;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.07),0 1px 5px 0 rgba(0,0,0,.1);
+	position: relative;
+}
+.aplayer.aplayer-fixed .aplayer-lrc:after,.aplayer.aplayer-fixed .aplayer-lrc:before {
+	display: none
+}
+.aplayer.aplayer.aplayer-fixed .aplayer-body{
+	background:rgba(255, 255, 255, 0.60)!important;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.07),0 1px 5px 0 rgba(0,0,0,.1);
+	position: fixed;
+}
+/*毛玻璃效果*/
+.aplayer-list{
+	backdrop-filter: blur(3px);
+}
+.aplayer-info{
+	backdrop-filter: blur(3px);
+}
+/*滚动条*/
+.aplayer .aplayer-list ol::-webkit-scrollbar {
+	width: 5px
+}
+.aplayer .aplayer-list ol::-webkit-scrollbar-thumb {
+	border-radius: 3px;
+	background-color: #b0e1ff
+}
+.aplayer .aplayer-list ol::-webkit-scrollbar-thumb:hover {
+	background-color: #b0e1ff
+}
+/*圆角*/
+.aplayer.aplayer-fixed .aplayer-list{
+    border-radius: 6px 6px 0 0!important;
+}
+.aplayer.aplayer-fixed .aplayer-miniswitcher{
+    border-radius: 0 6px 6px 0!important;
+}
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body{
+    transition: 0.28s!important;
+    border-radius: 6px!important;
+}	
+/*选中与播放中歌曲激活颜色*/
+.aplayer .aplayer-list ol li:hover{
+    background: #b0e1ff!important;
+}
+.aplayer .aplayer-list ol li.aplayer-list-light{
+    background: #F0F9EF!important;
+}
+
+/*aplayer黑暗模式*/
+[data-theme=dark]
+.aplayer{
+    background: rgba(22, 22, 22, 0.60)!important;
+    color: rgb(255, 255, 255);
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.07),0 1px 5px 0 rgba(0,0,0,.1);
+}
+[data-theme=dark]
+.aplayer.aplayer-fixed .aplayer-body{
+    background: rgba(22, 22, 22, 0.60)!important;
+    color: rgb(255, 255, 255);
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.07),0 1px 5px 0 rgba(0,0,0,.1);
+}
+[data-theme=dark]
+.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon path{
+	fill: #d4d4d4;
+}
+[data-theme=dark]	
+.aplayer .aplayer-list ol li:hover{
+    background: #407290!important;
+}
+[data-theme=dark]
+.aplayer .aplayer-list ol li.aplayer-list-light{
+    background: #9c8098!important;
+}
+[data-theme=dark]
+.aplayer .aplayer-info .aplayer-controller .aplayer-time{
+    color: #d4d4d4;
+}
+[data-theme=dark]
+.aplayer .aplayer-list ol li .aplayer-list-index{
+    color: #d4d4d4;
+}
+[data-theme=dark]
+.aplayer .aplayer-list ol li .aplayer-list-author{
+    color: #d4d4d4;
+}
